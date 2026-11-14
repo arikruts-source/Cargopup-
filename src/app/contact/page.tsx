@@ -5,6 +5,7 @@ export const metadata: Metadata = { title: "Contact" };
 
 export default function ContactPage() {
   const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
+  const phone = process.env.NEXT_PUBLIC_CONTACT_PHONE;
 
   return (
     <PolicyLayout title="Contact">
@@ -18,12 +19,18 @@ export default function ContactPage() {
           .
         </p>
       ) : (
-        <p>
-          Set NEXT_PUBLIC_CONTACT_EMAIL before launch. Until then, the Stripe receipt is the
-          email path for a test payment, and owner notes explain how new orders are saved.
-        </p>
+        <p>The email on your Stripe receipt is the way to reach us about that order.</p>
       )}
-      <p>We answer in English. We do not take phone orders.</p>
+      {phone ? (
+        <p>
+          Phone{" "}
+          <a className="underline" href={`tel:${phone.replace(/[^\d+]/g, "")}`}>
+            {phone}
+          </a>
+          .
+        </p>
+      ) : null}
+      <p>We answer in English.</p>
     </PolicyLayout>
   );
 }

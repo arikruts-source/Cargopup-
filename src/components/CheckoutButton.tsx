@@ -42,7 +42,6 @@ export function CheckoutButton({ lines }: { lines: CartLine[] }) {
       {error ? <p className="mt-3 text-sm leading-6 text-[var(--rust)]">{error}</p> : null}
       <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
         Stripe collects your name, email, phone, and US address. Card numbers stay on Stripe.
-        This build only accepts test keys.
       </p>
     </div>
   );

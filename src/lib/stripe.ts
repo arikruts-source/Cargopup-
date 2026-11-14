@@ -6,13 +6,17 @@ export function getStripe() {
   return new Stripe(key);
 }
 
+export function paymentsMode(): "live" | "test" | "missing" {
+  const key = process.env.STRIPE_SECRET_KEY ?? "";
+  if (key.startsWith("sk_live_")) return "live";
+  if (key.startsWith("sk_test_")) return "test";
+  return "missing";
+}
+
 export function stripeKeyProblem() {
-  const key = process.env.STRIPE_SECRET_KEY;
-  if (!key) {
-    return "Add STRIPE_SECRET_KEY=sk_test_... to .env.local. Live charges stay off until a warehouse sample is checked.";
-  }
-  if (!key.startsWith("sk_test_")) {
-    return "Live Stripe keys are refused. Use an sk_test_ key until the warehouse sample is in hand.";
+  const mode = paymentsMode();
+  if (mode === "missing") {
+    return "Add STRIPE_SECRET_KEY in Vercel. Use sk_test_... for a practice charge or sk_live_... for a real charge.";
   }
   return null;
 }
