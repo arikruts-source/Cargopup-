@@ -12,9 +12,10 @@ export default function ShippingPage() {
     <PolicyLayout title="Shipping">
       <p>{seatCoverSource.headline}.</p>
       <p>
-        Orders ship from a US warehouse to US addresses only. Packing is usually{" "}
-        {seatCoverSource.processing}. The supplier lists transit at {seatCoverSource.transitEstimate}.
-        Recent orders for the seat cover we use arrived in {seatCoverSource.recentDelivery}.
+        Orders ship from a US warehouse to the address entered in PayPal. Packing is usually{" "}
+        {seatCoverSource.processing}. Inside the US, the supplier lists transit at{" "}
+        {seatCoverSource.transitEstimate}. Recent US orders for the seat cover we use arrived in{" "}
+        {seatCoverSource.recentDelivery}. Other countries take longer.
       </p>
       <p>
         Shipping is included in the price. You get a tracking note by email after the warehouse
@@ -22,9 +23,9 @@ export default function ShippingPage() {
         business days. We will not pretend it is overnight.
       </p>
       <p>
-        We do not ship to PO boxes if the carrier for that order refuses them, and we do not ship
-        outside the United States. UK and EU checkout is not open, because those orders can need
-        VAT from the first sale.
+        We do not ship to PO boxes if the carrier for that order refuses them. Buyers outside the
+        US may have to pay customs or local tax when the package arrives. That charge comes from
+        their country, not from CargoPup.
       </p>
     </PolicyLayout>
   );

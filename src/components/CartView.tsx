@@ -12,7 +12,7 @@ export function CartView() {
   const notice = useSearchParams().get("notice");
   const noticeText =
     notice === "us"
-      ? "PayPal can only ship this order to a US address. The payment was not taken."
+      ? "PayPal did not finish this payment. You can try checkout again."
       : notice === "payment"
         ? "PayPal did not finish the payment. You can try checkout again."
         : null;

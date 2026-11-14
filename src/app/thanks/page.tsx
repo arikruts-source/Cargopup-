@@ -16,8 +16,9 @@ async function ThanksOrder({
     <>
       <ClearCart />
       <p className="mt-5 max-w-xl text-lg leading-8 text-[var(--muted)]">
-        PayPal has this payment. The order id is {order ? order : "missing"}. Ships from the US,
-        usually 3–7 business days, to the US address you confirmed in PayPal.
+        PayPal has this payment. The order id is {order ? order : "missing"}. It ships from the US
+        to the address you confirmed in PayPal. US delivery is usually 3–7 business days. Other
+        countries take longer.
       </p>
     </>
   );

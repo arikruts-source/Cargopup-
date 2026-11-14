@@ -28,7 +28,9 @@ export default function Home() {
             >
               See the {formatPrice(kit.priceCents)} kit
             </Link>
-            <p className="text-sm text-[var(--muted)]">US addresses only. No invented reviews.</p>
+            <p className="text-sm text-[var(--muted)]">
+              Listed in US dollars. PayPal can charge you in your currency. No invented reviews.
+            </p>
           </div>
         </div>
         <KitPhoto />

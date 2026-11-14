@@ -8,9 +8,9 @@ export default function TermsPage() {
   return (
     <PolicyLayout title="Terms">
       <p>
-        CargoPup sells physical car gear to customers in the United States. Prices are in US
-        dollars and include shipping to a US address. Placing an order means you can receive
-        packages at that address.
+        CargoPup sells physical car gear worldwide. Prices are listed in US dollars and include
+        shipping. PayPal may charge you in your own currency and show the conversion before you
+        pay. Placing an order means you can receive packages at the address you enter.
       </p>
       <p>
         {seatCoverSource.headline}. That window is an estimate from the warehouse, not a
@@ -21,8 +21,9 @@ export default function TermsPage() {
         a child seat. Use a harness or a crate, and follow your local rules for animals in cars.
       </p>
       <p>
-        A successful PayPal payment for the kit is a real order. We ship to the US address confirmed
-        in PayPal. The cover and the trunk liner cannot be paid until they have their own PayPal links.
+        A successful PayPal payment for the kit is a real order. We ship to the address confirmed
+        in PayPal. Customs or local tax outside the US is the buyer’s cost. The cover and the
+        trunk liner cannot be paid until they have their own PayPal links.
       </p>
       <p>
         The kit photo shows a dog on a black bench cover. The cover we ship is black 600D oxford in

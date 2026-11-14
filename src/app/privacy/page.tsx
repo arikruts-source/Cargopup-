@@ -20,8 +20,8 @@ export default function PrivacyPage() {
         we keep that thread long enough to answer you and to keep a record of refunds.
       </p>
       <p>
-        This store sells to the United States. If you write to us from somewhere else, we still
-        only use the message to reply.
+        Buyers can pay from outside the United States. If you write to us, we use the message to
+        reply and to handle the order.
       </p>
     </PolicyLayout>
   );

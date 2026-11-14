@@ -112,7 +112,7 @@ export default async function ProductPage({
             <p className="mt-2 max-w-2xl leading-7 text-[var(--muted)]">
               {seatCoverSource.headline}. Packing is usually {seatCoverSource.processing}. The
               listing estimates transit at {seatCoverSource.transitEstimate}, and recent orders
-              for this seat cover arrived in {seatCoverSource.recentDelivery}. US addresses only.
+              for this seat cover arrived in {seatCoverSource.recentDelivery}. Addresses outside the US take longer.
             </p>
           </details>
         </div>
