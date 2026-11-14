@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { PolicyLayout } from "@/components/PolicyLayout";
-import { paypalMode } from "@/lib/paypal";
 import { seatCoverSource } from "@/lib/sourcing";
 
 export const metadata: Metadata = { title: "Terms" };
@@ -22,9 +21,8 @@ export default function TermsPage() {
         a child seat. Use a harness or a crate, and follow your local rules for animals in cars.
       </p>
       <p>
-        {paypalMode() === "live"
-          ? "A successful PayPal payment is a real order. We ship to the US address confirmed in PayPal."
-          : "Checkout is not taking live PayPal payments yet. A sandbox payment is not a real order and nothing will ship."}
+        A successful PayPal payment for the kit is a real order. We ship to the US address confirmed
+        in PayPal. The cover and the trunk liner cannot be paid until they have their own PayPal links.
       </p>
       <p>
         The kit photo shows a dog on a black bench cover. The cover we ship is black 600D oxford in

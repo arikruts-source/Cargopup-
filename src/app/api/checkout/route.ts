@@ -1,17 +1,10 @@
 import { NextResponse } from "next/server";
-import { createPayPalOrder, paypalMode } from "@/lib/paypal";
+import { isSingleKit, kitPayPalUrl } from "@/lib/kit-paypal";
 import { getProduct } from "@/lib/products";
 
 type Item = { slug?: string; quantity?: number };
 
 export async function POST(request: Request) {
-  if (paypalMode() === "missing") {
-    return NextResponse.json(
-      { error: "Add PAYPAL_CLIENT_ID and PAYPAL_CLIENT_SECRET in Vercel." },
-      { status: 503 },
-    );
-  }
-
   let items: Item[] = [];
   try {
     const body = (await request.json()) as { items?: Item[] };
@@ -20,38 +13,22 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Send the cart as JSON." }, { status: 400 });
   }
 
-  const paypalItems = [];
+  const lines = [];
   for (const item of items) {
     const product = item.slug ? getProduct(item.slug) : undefined;
     const quantity = Number(item.quantity);
     if (!product || !Number.isInteger(quantity) || quantity < 1 || quantity > 5) {
       return NextResponse.json({ error: "That cart has a product we do not sell." }, { status: 400 });
     }
-    paypalItems.push({
-      name: product.name,
-      quantity,
-      unitAmountCents: product.priceCents,
-    });
+    lines.push({ slug: product.slug, quantity });
   }
 
-  if (paypalItems.length === 0) {
-    return NextResponse.json({ error: "Your cart is empty." }, { status: 400 });
+  if (!isSingleKit(lines)) {
+    return NextResponse.json(
+      { error: "Only one Clean Commute Kit can be paid right now. The cover and liner need their own PayPal links." },
+      { status: 400 },
+    );
   }
 
-  const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host");
-  const proto = request.headers.get("x-forwarded-proto") ?? "http";
-  if (!host) {
-    return NextResponse.json({ error: "Missing host." }, { status: 400 });
-  }
-  const origin = `${proto}://${host}`;
-
-  const created = await createPayPalOrder(
-    paypalItems,
-    `${origin}/api/paypal/return`,
-    `${origin}/cart`,
-  );
-  if ("error" in created) {
-    return NextResponse.json({ error: created.error }, { status: 502 });
-  }
-  return NextResponse.json({ url: created.url });
+  return NextResponse.json({ url: kitPayPalUrl });
 }

@@ -30,11 +30,10 @@ export default function OwnerPage() {
         Sample ordered: {sampleCheck.ordered ? "yes" : "no"}. {sampleCheck.detail}
       </p>
       <p>
-        Checkout uses PayPal. Put the live app credentials in Vercel as PAYPAL_CLIENT_ID and
-        PAYPAL_CLIENT_SECRET. Set PAYPAL_ENV=sandbox only for a practice payment. A real payment
-        shows in PayPal Activity. Put the contact details you want customers to see in
-        NEXT_PUBLIC_CONTACT_EMAIL and NEXT_PUBLIC_CONTACT_PHONE. Those stay out of the public
-        repository. Fulfill by hand. Do not automate the supplier yet.
+        The kit checkout opens the PayPal payment link. A completed payment shows in PayPal
+        Activity. The cover and liner do not have payment links yet. Put the contact details you
+        want customers to see in NEXT_PUBLIC_CONTACT_EMAIL and NEXT_PUBLIC_CONTACT_PHONE. Those
+        stay out of the public repository. Fulfill by hand. Do not automate the supplier yet.
       </p>
     </PolicyLayout>
   );
