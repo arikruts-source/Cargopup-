@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AddToCart } from "@/components/AddToCart";
-import { KitPhoto } from "@/components/KitPhoto";
+import { KitPhotos } from "@/components/KitPhoto";
 import { SeatIllustration } from "@/components/SeatIllustration";
 import { StickyBuy } from "@/components/StickyBuy";
 import { paypalUrlFor } from "@/lib/kit-paypal";
@@ -41,7 +41,7 @@ export default async function ProductPage({
         {product.slug === "trunk-liner" ? (
           <SeatIllustration className="w-full" />
         ) : (
-          <KitPhoto />
+          <KitPhotos />
         )}
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--rust)]">
