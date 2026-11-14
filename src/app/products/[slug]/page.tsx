@@ -3,7 +3,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AddToCart } from "@/components/AddToCart";
 import { KitPhotos } from "@/components/KitPhoto";
-import { SeatIllustration } from "@/components/SeatIllustration";
 import { StickyBuy } from "@/components/StickyBuy";
 import { paypalUrlFor } from "@/lib/kit-paypal";
 import { formatPrice, getProduct, products } from "@/lib/products";
@@ -39,7 +38,11 @@ export default async function ProductPage({
     <main className="pb-24 md:pb-0">
       <article className="mx-auto grid max-w-6xl gap-10 px-4 py-10 md:grid-cols-2 md:py-16">
         {product.slug === "trunk-liner" ? (
-          <SeatIllustration className="w-full" />
+          <img
+            src="/trunk-liner.jpg"
+            alt="A black waterproof liner lying flat on a car cargo floor"
+            className="aspect-[4/3] w-full rounded-[28px] object-cover"
+          />
         ) : (
           <KitPhotos />
         )}
