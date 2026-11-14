@@ -19,7 +19,7 @@ export default function ContactPage() {
           .
         </p>
       ) : (
-        <p>The email on your Stripe receipt is the way to reach us about that order.</p>
+        <p>The email on your PayPal receipt is the way to reach us about that order.</p>
       )}
       {phone ? (
         <p>

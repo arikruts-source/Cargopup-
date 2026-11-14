@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { paymentsMode } from "@/lib/stripe";
+import { paypalMode } from "@/lib/paypal";
 
 export function TestModeBanner() {
-  const mode = paymentsMode();
+  const mode = paypalMode();
   if (mode === "live") return null;
 
   const message =
-    mode === "test"
-      ? "Checkout is in test mode. A test card does not create a real order."
+    mode === "sandbox"
+      ? "Checkout is in PayPal sandbox mode. A test payment does not create a real order."
       : "Checkout is not open yet.";
 
   return (

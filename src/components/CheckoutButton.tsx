@@ -37,11 +37,11 @@ export function CheckoutButton({ lines }: { lines: CartLine[] }) {
         disabled={pending || lines.length === 0}
         className="w-full rounded-full bg-[var(--rust)] px-6 py-3 font-semibold text-white disabled:opacity-60"
       >
-        {pending ? "Opening Stripe…" : "Checkout"}
+        {pending ? "Opening PayPal…" : "Checkout"}
       </button>
       {error ? <p className="mt-3 text-sm leading-6 text-[var(--rust)]">{error}</p> : null}
       <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
-        Stripe collects your name, email, phone, and US address. Card numbers stay on Stripe.
+        PayPal collects your name, email, and US shipping address. Card numbers stay on PayPal.
       </p>
     </div>
   );
