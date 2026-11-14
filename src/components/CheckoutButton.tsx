@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { isSingleKit, kitPayPalUrl } from "@/lib/kit-paypal";
+import { paypalUrlForCart } from "@/lib/kit-paypal";
 import type { CartLine } from "./CartProvider";
 
 export function CheckoutButton({ lines }: { lines: CartLine[] }) {
@@ -10,12 +10,13 @@ export function CheckoutButton({ lines }: { lines: CartLine[] }) {
 
   function checkout() {
     setError(null);
-    if (!isSingleKit(lines)) {
-      setError("Only one Clean Commute Kit can be paid right now. The cover and liner need their own PayPal links.");
+    const url = paypalUrlForCart(lines);
+    if (!url) {
+      setError("PayPal links are for one item at a time. Remove the extra products or lower the quantity to 1.");
       return;
     }
     setPending(true);
-    window.location.href = kitPayPalUrl;
+    window.location.href = url;
   }
 
   return (

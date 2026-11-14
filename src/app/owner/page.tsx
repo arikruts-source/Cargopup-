@@ -30,8 +30,8 @@ export default function OwnerPage() {
         Sample ordered: {sampleCheck.ordered ? "yes" : "no"}. {sampleCheck.detail}
       </p>
       <p>
-        The kit checkout opens the PayPal payment link. A completed payment shows in PayPal
-        Activity. The cover and liner do not have payment links yet. Put the contact details you
+        Each product opens its own PayPal payment link. A completed payment shows in PayPal
+        Activity. Put the contact details you
         want customers to see in NEXT_PUBLIC_CONTACT_EMAIL and NEXT_PUBLIC_CONTACT_PHONE. Those
         stay out of the public repository. Fulfill by hand. Do not automate the supplier yet.
       </p>

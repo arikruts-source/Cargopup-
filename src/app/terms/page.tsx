@@ -22,8 +22,8 @@ export default function TermsPage() {
       </p>
       <p>
         A successful PayPal payment for the kit is a real order. We ship to the address confirmed
-        in PayPal. Customs or local tax outside the US is the buyer’s cost. The cover and the
-        trunk liner cannot be paid until they have their own PayPal links.
+        in PayPal. Customs or local tax outside the US is the buyer’s cost. Each PayPal link is
+        for one item.
       </p>
       <p>
         The kit photo shows a dog on a black bench cover. The cover we ship is black 600D oxford in

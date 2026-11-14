@@ -5,7 +5,7 @@ import { AddToCart } from "@/components/AddToCart";
 import { KitPhoto } from "@/components/KitPhoto";
 import { SeatIllustration } from "@/components/SeatIllustration";
 import { StickyBuy } from "@/components/StickyBuy";
-import { kitPayPalUrl } from "@/lib/kit-paypal";
+import { paypalUrlFor } from "@/lib/kit-paypal";
 import { formatPrice, getProduct, products } from "@/lib/products";
 import { seatCoverSource } from "@/lib/sourcing";
 
@@ -52,9 +52,9 @@ export default async function ProductPage({
           <p className="mt-3 text-lg leading-8 text-[var(--muted)]">{product.summary}</p>
           <p className="mt-3 text-sm text-[var(--pine)]">{seatCoverSource.headline}.</p>
           <div className="mt-6 hidden items-center gap-3 md:flex">
-            {product.slug === "clean-commute-kit" ? (
+            {paypalUrlFor(product.slug) ? (
               <a
-                href={kitPayPalUrl}
+                href={paypalUrlFor(product.slug)}
                 className="rounded-full bg-[var(--rust)] px-6 py-3 font-semibold text-white"
               >
                 Pay with PayPal

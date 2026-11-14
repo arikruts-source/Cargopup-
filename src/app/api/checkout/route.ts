@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { isSingleKit, kitPayPalUrl } from "@/lib/kit-paypal";
+import { paypalUrlForCart } from "@/lib/kit-paypal";
 import { getProduct } from "@/lib/products";
 
 type Item = { slug?: string; quantity?: number };
@@ -23,12 +23,13 @@ export async function POST(request: Request) {
     lines.push({ slug: product.slug, quantity });
   }
 
-  if (!isSingleKit(lines)) {
+  const url = paypalUrlForCart(lines);
+  if (!url) {
     return NextResponse.json(
-      { error: "Only one Clean Commute Kit can be paid right now. The cover and liner need their own PayPal links." },
+      { error: "PayPal links are for one item at a time. Remove the extra products or lower the quantity to 1." },
       { status: 400 },
     );
   }
 
-  return NextResponse.json({ url: kitPayPalUrl });
+  return NextResponse.json({ url });
 }
