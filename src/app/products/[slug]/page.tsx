@@ -5,6 +5,7 @@ import { AddToCart } from "@/components/AddToCart";
 import { KitPhoto } from "@/components/KitPhoto";
 import { SeatIllustration } from "@/components/SeatIllustration";
 import { StickyBuy } from "@/components/StickyBuy";
+import { kitPayPalUrl } from "@/lib/kit-paypal";
 import { formatPrice, getProduct, products } from "@/lib/products";
 import { seatCoverSource } from "@/lib/sourcing";
 
@@ -50,10 +51,20 @@ export default async function ProductPage({
           <p className="mt-4 text-4xl">{formatPrice(product.priceCents)}</p>
           <p className="mt-3 text-lg leading-8 text-[var(--muted)]">{product.summary}</p>
           <p className="mt-3 text-sm text-[var(--pine)]">{seatCoverSource.headline}.</p>
-          <AddToCart
-            slug={product.slug}
-            className="mt-6 hidden rounded-full bg-[var(--rust)] px-6 py-3 font-semibold text-white md:inline-flex"
-          />
+          <div className="mt-6 hidden items-center gap-3 md:flex">
+            {product.slug === "clean-commute-kit" ? (
+              <a
+                href={kitPayPalUrl}
+                className="rounded-full bg-[var(--rust)] px-6 py-3 font-semibold text-white"
+              >
+                Pay with PayPal
+              </a>
+            ) : null}
+            <AddToCart
+              slug={product.slug}
+              className="rounded-full border border-[var(--ink)] px-6 py-3 font-semibold text-[var(--ink)]"
+            />
+          </div>
           <h2 className="mt-10 text-2xl">What arrives</h2>
           <ul className="mt-3 list-disc space-y-2 pl-5 leading-7">
             {product.includes.map((item) => (

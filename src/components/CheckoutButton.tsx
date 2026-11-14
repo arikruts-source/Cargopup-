@@ -1,32 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import { isSingleKit, kitPayPalUrl } from "@/lib/kit-paypal";
 import type { CartLine } from "./CartProvider";
 
 export function CheckoutButton({ lines }: { lines: CartLine[] }) {
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
 
-  async function checkout() {
-    setPending(true);
+  function checkout() {
     setError(null);
-    try {
-      const response = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items: lines }),
-      });
-      const data = (await response.json()) as { url?: string; error?: string };
-      if (!response.ok || !data.url) {
-        setError(data.error ?? "Checkout could not start.");
-        setPending(false);
-        return;
-      }
-      window.location.href = data.url;
-    } catch {
-      setError("Checkout could not start. Check your connection and try again.");
-      setPending(false);
+    if (!isSingleKit(lines)) {
+      setError("Only one Clean Commute Kit can be paid right now. The cover and liner need their own PayPal links.");
+      return;
     }
+    setPending(true);
+    window.location.href = kitPayPalUrl;
   }
 
   return (
