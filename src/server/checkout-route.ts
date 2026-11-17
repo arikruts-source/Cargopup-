@@ -1,3 +1,4 @@
+// Kept for a Node host. GitHub Pages is static, and checkout opens the PayPal link in the browser.
 import { NextResponse } from "next/server";
 import { paypalUrlForCart } from "@/lib/kit-paypal";
 import { getProduct } from "@/lib/products";

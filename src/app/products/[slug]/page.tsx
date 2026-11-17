@@ -5,6 +5,7 @@ import { AddToCart } from "@/components/AddToCart";
 import { KitPhotos } from "@/components/KitPhoto";
 import { StickyBuy } from "@/components/StickyBuy";
 import { paypalUrlFor } from "@/lib/kit-paypal";
+import { publicSrc } from "@/lib/public-src";
 import { formatPrice, getProduct, products } from "@/lib/products";
 import { seatCoverSource } from "@/lib/sourcing";
 
@@ -39,7 +40,7 @@ export default async function ProductPage({
       <article className="mx-auto grid max-w-6xl gap-10 px-4 py-10 md:grid-cols-2 md:py-16">
         {product.slug === "trunk-liner" ? (
           <img
-            src="/trunk-liner.jpg"
+            src={publicSrc("/trunk-liner.jpg")}
             alt="A black waterproof liner lying flat on a car cargo floor"
             className="aspect-[4/3] w-full rounded-[28px] object-cover"
           />

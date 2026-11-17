@@ -1,3 +1,4 @@
+// Kept for a Node host. The live PayPal buttons do not return through this route.
 import { NextResponse } from "next/server";
 import { capturePayPalOrder, readPayPalOrder, shippingCountry } from "@/lib/paypal";
 

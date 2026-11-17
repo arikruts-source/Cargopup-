@@ -1,34 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
-import { ClearCart } from "@/components/ClearCart";
+import { ThanksOrder } from "@/components/ThanksOrder";
 
 export const metadata: Metadata = { title: "Thank you" };
 
-async function ThanksOrder({
-  searchParams,
-}: {
-  searchParams: Promise<{ order?: string }>;
-}) {
-  const { order } = await searchParams;
-
-  return (
-    <>
-      <ClearCart />
-      <p className="mt-5 max-w-xl text-lg leading-8 text-[var(--muted)]">
-        PayPal has this payment. The order id is {order ? order : "missing"}. It ships from the US
-        to the address you confirmed in PayPal. US delivery is usually 3–7 business days. Other
-        countries take longer.
-      </p>
-    </>
-  );
-}
-
-export default function ThanksPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ order?: string }>;
-}) {
+export default function ThanksPage() {
   return (
     <main className="mx-auto w-full max-w-3xl px-4 py-16">
       <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--rust)]">Paid</p>
@@ -36,7 +13,7 @@ export default function ThanksPage({
       <Suspense
         fallback={<p className="mt-5 text-lg text-[var(--muted)]">Confirming the PayPal payment…</p>}
       >
-        <ThanksOrder searchParams={searchParams} />
+        <ThanksOrder />
       </Suspense>
       <Link href="/" className="mt-8 inline-flex rounded-full bg-[var(--rust)] px-6 py-3 font-semibold text-white">
         Back to CargoPup

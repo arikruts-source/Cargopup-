@@ -1,14 +1,16 @@
+import { publicSrc } from "@/lib/public-src";
+
 const photos = [
   {
-    src: "/dog-on-kit.jpg",
+    src: publicSrc("/dog-on-kit.jpg"),
     alt: "A golden retriever sitting on a black rear-bench seat cover",
   },
   {
-    src: "/cover-detail.jpg",
+    src: publicSrc("/cover-detail.jpg"),
     alt: "Close view of the black rear-bench cover with headrest straps and mesh windows",
   },
   {
-    src: "/dog-rear-door.jpg",
+    src: publicSrc("/dog-rear-door.jpg"),
     alt: "A golden retriever on the black seat cover, seen from the open rear of the car",
   },
 ];
