@@ -16,17 +16,18 @@ export const brand = {
 
 /**
  * Seat-cover listing used for size and shipping copy.
- * Doba hides the wholesale price, so the $35 landed-cost target is not confirmed.
+ * Order it on AliExpress, choosing a listing that ships from the United States.
+ * The wholesale price is not confirmed.
  */
 export const seatCoverSource = {
-  supplier: "UUSalesshop via Doba",
-  sku: "D01027H74SY",
+  supplier: "AliExpress",
+  sku: "Black 600D oxford rear seat cover, about 80.9 × 64.6 inches",
   shipsFrom: "United States",
   processing: "about 2 business days (recent orders averaged under 1)",
   transitEstimate: "1–7 days",
   recentDelivery: "about 5 business days",
   headline: "Ships from the US, usually 3–7 business days",
-  url: "https://www.doba.com/product/CgehvTWSfobA/dropshipping-dog-car-back-seat-cover-with-zipper-mesh-window-storage-bags-waterproof-600d-oxford-cloth-car-seat-protector-with-slide-flaps-for-cars-trucks-suvs.html",
+  url: "https://www.aliexpress.com",
 } as const;
 
 export const marginCheck = {
@@ -34,11 +35,11 @@ export const marginCheck = {
   landedTargetUsd: 35,
   landedConfirmed: false,
   detail:
-    "Doba does not publish wholesale. A note of up to $38.51 profit at a 44% margin implies a reference price near $88 and a cost near $49 for the seat cover alone. Four pieces at $99 do not clear a $35 landed cost on that hint. Do not buy ads until one supplier confirms item plus US shipping at $35 or less, in one parcel.",
+    "AliExpress prices change by seller and shipping option. A past US-warehouse listing implied a seat-cover cost near $49. Four pieces at $99 do not clear a $35 landed cost on that hint. Do not buy ads until one AliExpress listing confirms item plus US shipping at $35 or less, in one parcel.",
 } as const;
 
 export const sampleCheck = {
   ordered: false,
   detail:
-    "No sample was purchased in this build. It needs a paid order on your Doba account. Live card charges stay off until that sample is in hand and the fabric matches this page.",
+    "No sample was purchased in this build. It needs a paid order on AliExpress. Live card charges stay off until that sample is in hand and the fabric matches this page.",
 } as const;

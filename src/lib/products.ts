@@ -79,7 +79,7 @@ export const products: Product[] = [
       { label: "Ships from", value: seatCoverSource.shipsFrom },
     ],
     notes: [
-      "These measurements are from US-warehouse item D01027H74SY. Check them against your bench.",
+      "These measurements are from the seat-cover listing. Check them against your bench.",
       "The cover keeps hair and mud off the upholstery. It does not replace a harness or a crate.",
     ],
     faq: [

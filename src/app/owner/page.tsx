@@ -31,9 +31,12 @@ export default function OwnerPage() {
       </p>
       <p>
         Each product opens its own PayPal payment link. A completed payment shows in PayPal
-        Activity. Put the contact details you
+        Activity. Buy the matching item on AliExpress and ship it to the address on that payment.
+        Choose a listing that ships from the United States, and check the size before you pay
+        AliExpress. Put the contact details you
         want customers to see in NEXT_PUBLIC_CONTACT_EMAIL and NEXT_PUBLIC_CONTACT_PHONE. Those
-        stay out of the public repository. Fulfill by hand. Do not automate the supplier yet.
+        stay out of the public repository. Fulfill by hand. The shop does not place the AliExpress
+        order for you.
       </p>
     </PolicyLayout>
   );
