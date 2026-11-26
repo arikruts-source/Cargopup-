@@ -2,7 +2,6 @@
 
 import { paypalUrlFor } from "@/lib/kit-paypal";
 import { formatPrice } from "@/lib/products";
-import { seatCoverSource } from "@/lib/sourcing";
 import { AddToCart } from "./AddToCart";
 
 export function StickyBuy({ slug, priceCents }: { slug: string; priceCents: number }) {
@@ -11,7 +10,7 @@ export function StickyBuy({ slug, priceCents }: { slug: string; priceCents: numb
       <div className="mx-auto flex max-w-6xl items-center gap-3">
         <div className="min-w-0 flex-1">
           <p className="text-lg font-semibold text-[var(--ink)]">{formatPrice(priceCents)}</p>
-          <p className="truncate text-xs text-[var(--muted)]">{seatCoverSource.headline}</p>
+          <p className="truncate text-xs text-[var(--muted)]">Ships to the PayPal address</p>
         </div>
         {paypalUrlFor(slug) ? (
           <a

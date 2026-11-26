@@ -55,6 +55,9 @@ export default async function ProductPage({
           <p className="mt-4 text-4xl">{formatPrice(product.priceCents)}</p>
           <p className="mt-3 text-lg leading-8 text-[var(--muted)]">{product.summary}</p>
           <p className="mt-3 text-sm text-[var(--pine)]">{seatCoverSource.headline}.</p>
+          <p className="mt-2 max-w-md text-sm leading-6 text-[var(--ink)]">
+            PayPal asks for the address. The box is shipped there.
+          </p>
           <div className="mt-6 hidden items-center gap-3 md:flex">
             {paypalUrlFor(product.slug) ? (
               <a

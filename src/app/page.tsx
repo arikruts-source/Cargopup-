@@ -1,10 +1,25 @@
 import Link from "next/link";
 import { KitPhoto } from "@/components/KitPhoto";
 import { formatPrice, products } from "@/lib/products";
+import { publicSrc } from "@/lib/public-src";
 import { seatCoverSource } from "@/lib/sourcing";
 
+const productPhoto: Record<string, { src: string; alt: string }> = {
+  "clean-commute-kit": {
+    src: publicSrc("/dog-on-kit.jpg"),
+    alt: "A golden retriever sitting on a black rear-bench seat cover",
+  },
+  "seat-cover": {
+    src: publicSrc("/cover-detail.jpg"),
+    alt: "Close view of the black rear-bench cover with headrest straps and mesh windows",
+  },
+  "trunk-liner": {
+    src: publicSrc("/trunk-liner.jpg"),
+    alt: "A black waterproof liner lying flat on a car cargo floor",
+  },
+};
+
 const kit = products[0];
-const others = products.slice(1);
 
 export default function Home() {
   return (
@@ -74,19 +89,25 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {others.map((product) => (
-            <Link
-              key={product.slug}
-              href={`/products/${product.slug}`}
-              className="rounded-2xl border border-[var(--line)] p-5 hover:border-[var(--ink)]"
-            >
-              <p className="text-sm text-[var(--rust)]">{product.eyebrow}</p>
-              <h3 className="mt-1 text-2xl">{product.name}</h3>
-              <p className="mt-2 text-[var(--muted)]">{product.summary}</p>
-              <p className="mt-4 font-semibold">{formatPrice(product.priceCents)}</p>
-            </Link>
-          ))}
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
+          {products.map((product) => {
+            const photo = productPhoto[product.slug];
+            return (
+              <Link
+                key={product.slug}
+                href={`/products/${product.slug}`}
+                className="overflow-hidden rounded-2xl border border-[var(--line)] bg-white/50 hover:border-[var(--ink)]"
+              >
+                <img src={photo.src} alt={photo.alt} className="aspect-[4/3] w-full object-cover" />
+                <div className="p-5">
+                  <p className="text-sm text-[var(--rust)]">{product.eyebrow}</p>
+                  <h3 className="mt-1 text-2xl">{product.name}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{product.summary}</p>
+                  <p className="mt-4 text-lg font-semibold">{formatPrice(product.priceCents)}</p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </section>
     </main>

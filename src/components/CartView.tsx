@@ -64,7 +64,10 @@ export function CartView() {
             </div>
           ))}
           <div className="flex items-end justify-between gap-6">
-            <p className="max-w-xs text-sm leading-6 text-[var(--muted)]">{seatCoverSource.headline}. Shipping is included.</p>
+            <p className="max-w-xs text-sm leading-6 text-[var(--muted)]">
+              {seatCoverSource.headline}. PayPal asks for the address. The box is shipped there.
+              Shipping is included.
+            </p>
             <p className="text-3xl">{formatPrice(total)}</p>
           </div>
           <CheckoutButton lines={lines} />

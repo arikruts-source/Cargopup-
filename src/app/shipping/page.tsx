@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default function ShippingPage() {
   return (
     <PolicyLayout title="Shipping">
+      <p>PayPal asks for the address. The box is shipped there.</p>
       <p>{seatCoverSource.headline}.</p>
       <p>
         Orders ship from a US warehouse to the address entered in PayPal. Packing is usually{" "}

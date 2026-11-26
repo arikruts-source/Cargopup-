@@ -31,7 +31,8 @@ export function CheckoutButton({ lines }: { lines: CartLine[] }) {
       </button>
       {error ? <p className="mt-3 text-sm leading-6 text-[var(--rust)]">{error}</p> : null}
       <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
-        The price is in US dollars. PayPal can charge your card in your currency. Card numbers stay on PayPal.
+        PayPal asks for the address. The box is shipped there. The price is in US dollars. PayPal
+        can charge your card in your currency. Card numbers stay on PayPal.
       </p>
     </div>
   );

@@ -12,11 +12,11 @@ export function Header() {
         <Link href="/" className="font-serif text-2xl tracking-tight text-[var(--ink)]">
           CargoPup
         </Link>
-        <nav className="flex items-center gap-4 text-sm text-[var(--ink)]">
+        <nav className="flex items-center gap-3 text-sm text-[var(--ink)] sm:gap-5">
           <Link href="/products/clean-commute-kit" className="hover:text-[var(--rust)]">
             The kit
           </Link>
-          <Link href="/shipping" className="hidden hover:text-[var(--rust)] sm:inline">
+          <Link href="/shipping" className="hover:text-[var(--rust)]">
             Shipping
           </Link>
           <Link href="/cart" className="rounded-full border border-[var(--line)] px-3 py-1.5 hover:border-[var(--ink)]">
